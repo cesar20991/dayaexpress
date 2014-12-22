@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="assets/bootstrap-toggle-buttons/static/js/jquery.min.js|assets/bootstrap-wizard/prettify.js|assets/chart-master/docs/prettify.js|assets/ckeditor/ckeditor.js|assets/data-tables/jquery.dataTables.js|assets/fancybox/lib/jquery-1.8.2.min.js|assets/flot/jquery.flot.js|assets/fullcalendar/jquery/jquery-1.8.1.min.js|assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js|assets/jquery-tags-input/jquery.tagsinput.js|assets/jquery-tags-input/jquery.tagsinput.min.js|assets/jquery-ui/jquery-ui-1.10.1.custom.min.js|assets/jquery-ui/jquery-ui-1.9.2.custom.min.js|js/jquery-1.8.2.min.js|js/jquery-1.8.3.min.js" kind="src" path="WebContent"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
+		<attributes>
+			<attribute name="hide" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
