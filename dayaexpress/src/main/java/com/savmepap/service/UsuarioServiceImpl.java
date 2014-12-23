@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.savmepap.bean.PersonaBean;
-import com.savmepap.model.Persona;
-import com.savmepap.model.Usuario;
+import com.savmepap.model.Profile;
+import com.savmepap.model.User;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService{
@@ -22,49 +22,49 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public boolean login(Usuario usu, HttpSession session) {
+	public boolean login(User usu, HttpSession session) {
 		boolean resultado = false;
-		try{
-			Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.email =:email AND u.password =:password AND u.activo =:activo");
-			q.setParameter("email", usu.getEmail());
-	    	//String md5 = DigestUtils.md5Hex(usu.getPassword());
-			q.setParameter("password", usu.getPassword());
-			q.setParameter("activo", true);
-			
-			Usuario userResult = (Usuario) q.getSingleResult();
-			
-			session.setAttribute("email", userResult.getEmail());
-			session.setAttribute("idUsuario", userResult.getIdUsuario());
-			// es Valido
-			session.setAttribute("isValid", true);
-			resultado = true;
-		}catch(NoResultException ex){
-			resultado = false;
-		}
+//		try{
+//			Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.email =:email AND u.password =:password AND u.activo =:activo");
+//			q.setParameter("email", usu.getEmail());
+//	    	//String md5 = DigestUtils.md5Hex(usu.getPassword());
+//			q.setParameter("password", usu.getPassword());
+//			q.setParameter("activo", true);
+//			
+//			Usuario userResult = (Usuario) q.getSingleResult();
+//			
+//			session.setAttribute("email", userResult.getEmail());
+//			session.setAttribute("idUsuario", userResult.getIdUsuario());
+//			// es Valido
+//			session.setAttribute("isValid", true);
+//			resultado = true;
+//		}catch(NoResultException ex){
+//			resultado = false;
+//		}
 		return resultado;
 	}
 	
 	@Transactional
 	public boolean registro(PersonaBean perbean) {
 		boolean resultado = false;
-		Persona persona = new Persona();
-		Usuario usuario = new Usuario();
-		try{
-			usuario.setEmail(perbean.getEmail());
-			usuario.setPassword(perbean.getPassword());
-			usuario.setActivo(true);
-			em.persist(usuario);
-			persona.setUsuario(usuario);
-			persona.setNombre(perbean.getNombre());
-			persona.setApellidoPaterno(perbean.getApellidoPaterno());
-			persona.setApellidoMaterno(perbean.getApellidoMaterno());
-			persona.setTelefono(perbean.getTelefono());	
-			em.persist(persona);
-			resultado = true;
-		}catch(IllegalArgumentException e){
-			System.out.println(e);
-			resultado = false;
-		}
+//		Persona persona = new Persona();
+//		Usuario usuario = new Usuario();
+//		try{
+//			usuario.setEmail(perbean.getEmail());
+//			usuario.setPassword(perbean.getPassword());
+//			usuario.setActivo(true);
+//			em.persist(usuario);
+//			persona.setUsuario(usuario);
+//			persona.setNombre(perbean.getNombre());
+//			persona.setApellidoPaterno(perbean.getApellidoPaterno());
+//			persona.setApellidoMaterno(perbean.getApellidoMaterno());
+//			persona.setTelefono(perbean.getTelefono());	
+//			em.persist(persona);
+//			resultado = true;
+//		}catch(IllegalArgumentException e){
+//			System.out.println(e);
+//			resultado = false;
+//		}
 		
 		return resultado;
 	}

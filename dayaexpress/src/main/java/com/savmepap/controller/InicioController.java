@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.savmepap.bean.PersonaBean;
-import com.savmepap.model.Usuario;
+import com.savmepap.model.User;
 import com.savmepap.service.PersonaService;
 import com.savmepap.service.UsuarioService;
 
@@ -49,7 +49,7 @@ public class InicioController {
 	}
 	
 	@RequestMapping(value="login", method = RequestMethod.POST)
-	public String login(@ModelAttribute("usuario") Usuario usu, Model model, HttpServletRequest req, HttpSession session){
+	public String login(@ModelAttribute("usuario") User usu, Model model, HttpServletRequest req, HttpSession session){
 		String path = "";
 		if(usuarioService.login(usu, req.getSession())) {
 			model.addAttribute("nameUser", req.getSession().getAttribute("email"));

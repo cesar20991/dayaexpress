@@ -1,15 +1,19 @@
 package com.savmepap.model;
 
 import java.sql.Timestamp;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
-public class Usuario {
+@Table(name = "\"user\"")
+public class User {
 	
 	@Id @GeneratedValue @Column(name = "idusuario")	
 	private Integer idUsuario;
@@ -26,9 +30,20 @@ public class Usuario {
 	@Column(name = "activo", nullable = true)
 	private Boolean activo;
 	
-	@OneToOne(mappedBy="usuario")
-	private Persona persona;
+	//references
 	
+	@OneToOne(mappedBy="user")
+	private Profile persona;
+	
+	@OneToMany(mappedBy="publiUser")
+	private Collection<Publishing> userPublishing;
+	
+	@OneToMany(mappedBy="blogUser")
+	private Collection<Blog> userblogs;
+	
+	@OneToMany(mappedBy="saleUser")
+	private Collection<Sale> userSales;
+		
 	//-------------------------------------------------------------------------------------
 	public Integer getIdUsuario() {
 		return idUsuario;
@@ -60,10 +75,10 @@ public class Usuario {
 	public void setActivo(Boolean activo) {
 		this.activo = activo;
 	}
-	public Persona getPersona() {
+	public Profile getPersona() {
 		return persona;
 	}
-	public void setPersona(Persona persona) {
+	public void setPersona(Profile persona) {
 		this.persona = persona;
 	}
 }
