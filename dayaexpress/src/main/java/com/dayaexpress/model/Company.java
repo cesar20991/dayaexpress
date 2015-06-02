@@ -29,7 +29,7 @@ public class Company {
 	@Column(name = "telephone", length = 20, nullable = true)
 	private String telephone;
 	
-	@Column(name = "logo", length = 20, nullable = true)
+	@Column(name = "logo", nullable = true)
 	private Blob logo;
 	
 	@Column(name = "state", length = 20, nullable = false)
